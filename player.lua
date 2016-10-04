@@ -21,16 +21,18 @@ function player:update(dt)
 	self.px = self.x
 	self.py = self.y
 	
-	if (self.dir == keyC[rightkey]) then
+	if (love.keyboard.isDown(keyC[rightkey])) then
 		self.x = self.x + self.speed*dt
 		if (self:collwalls(1,0)) then self.speed = 0; self.x = self.px end
-	elseif (self.dir == keyC[leftkey]) then
+	elseif (love.keyboard.isDown(keyC[leftkey])) then
 		self.x = self.x - self.speed*dt
 		if (self:collwalls(-1,0)) then self.speed = 0; self.x = self.px end
-	elseif (self.dir == keyC[downkey]) then
+	end
+	
+	if (love.keyboard.isDown(keyC[downkey])) then
 		self.y = self.y + self.speed*dt
 		if (self:collwalls(0,1)) then self.speed = 0; self.y = self.py end
-	elseif (self.dir == keyC[upkey]) then
+	elseif (love.keyboard.isDown(keyC[upkey])) then
 		self.y = self.y - self.speed*dt
 		if (self:collwalls(0,-1)) then self.speed = 0; self.y = self.py end
 	end
