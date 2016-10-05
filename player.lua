@@ -39,6 +39,7 @@ function player:update(dt)
 	if (self.x > love.graphics.getWidth()/2) then
 		cam.x = math.floor(self.x - love.graphics.getWidth()/2)
 	end
+	-- why is camera code with the player? --
 	if (cam.x+cam.width > camstops[1].x) then
 		cam.x = camstops[1].x - cam.width
 	end
